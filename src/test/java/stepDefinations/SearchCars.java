@@ -43,14 +43,15 @@ public class SearchCars {
 	}
 
 	@And("^select carbrand as \"([^\"]*)\" from the Any Make dropdown$")
-	public void select_carbrand_as_from_the_Any_Make_dropdown(String carBrand) {
-
+	public void select_carbrand_as_from_the_Any_Make_dropdown(String carBrand){
+		
+		SeleniumDriver.waitForPageToLoad();
 		searchCarsPageActions.selectCarMake(carBrand);
 
 	}
 
 	@And("^select model as \"([^\"]*)\" from the Any Model dropdown$")
-	public void select_model_as_from_the_Any_Model_dropdown(String carModel) {
+	public void select_model_as_from_the_Any_Model_dropdown(int carModel) {
 
 		searchCarsPageActions.selectCarModel(carModel);
 
@@ -90,5 +91,23 @@ public class SearchCars {
 		Assert.assertEquals(expectedPageTitle, ActualPageTitle);
 
 	}
+	
+	@When("^click on All New lable$")
+	public void click_on_All_New_lable()  {
+		
+		searchCarsPageActions.clickOnAllNewCarsLink();
+	    
+	}
+
+	@Then("^page title of new cars search should be \"([^\"]*)\"$")
+	public void page_title_of_new_cars_search_should_be(String expectedPageTitle) {
+		
+		String ActualPageTitle = SeleniumDriver.getDriver().getTitle();
+		System.out.println("Actual page title-->" + ActualPageTitle);
+		System.out.println("Expected page title-->" + expectedPageTitle);
+		Assert.assertEquals(expectedPageTitle, ActualPageTitle);
+	    
+	}
+
 
 }

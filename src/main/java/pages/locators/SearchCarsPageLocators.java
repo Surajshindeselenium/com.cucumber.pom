@@ -6,10 +6,13 @@ import org.openqa.selenium.support.How;
 
 public class SearchCarsPageLocators {
 	
-	@FindBy(how=How.ID,using = "makes")
+	@FindBy(how=How.XPATH, using = "//*[@id=\"block-system-main\"]/div/div/div/div/div/form/div[1]/label[2]")
+	public WebElement allNewCarsLink;
+	
+	@FindBy(how=How.XPATH,using = "//select[@id='makes']")
 	public WebElement anyMakeDropdown;
 	
-	@FindBy(how=How.ID,using = "models")
+	@FindBy(how=How.XPATH,using = "//select[@id='models']")
 	public WebElement modelsDropdown;
 	
 	@FindBy(how=How.ID,using = "locations")

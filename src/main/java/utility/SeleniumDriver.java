@@ -56,5 +56,16 @@ public class SeleniumDriver {
 		seleniumDriver=null;
 	}
 	
-
+	public static void waitForPageToLoad()
+    {
+    	try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+	
+			e.printStackTrace();
+		}
+    }
 }
+	
+
+
